@@ -15,9 +15,15 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Input = ({ otherUser, conversationId, user, postMessage }) => {
+const Input = ({
+  otherUser,
+  conversationId,
+  user,
+  postMessage,
+  text,
+  setText,
+}) => {
   const classes = useStyles();
-  const [text, setText] = useState("");
 
   const handleChange = (event) => {
     setText(event.target.value);
@@ -35,7 +41,6 @@ const Input = ({ otherUser, conversationId, user, postMessage }) => {
       sender: conversationId ? null : user,
     };
     await postMessage(reqBody);
-    setText("");
   };
 
   return (
